@@ -26,5 +26,6 @@ public class BookDaoImpl implements BookDao {
     public void updateBalance(Integer userId, Integer price) {
         String sql = "update t_user set balance = balance - ? where user_id = ?";
         jdbcTemplate.update(sql,price,userId);
+
     }
 }
