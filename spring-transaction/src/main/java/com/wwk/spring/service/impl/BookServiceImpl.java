@@ -4,6 +4,8 @@ import com.wwk.spring.dao.BookDao;
 import com.wwk.spring.service.BookService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.concurrent.TimeUnit;
@@ -17,7 +19,8 @@ public class BookServiceImpl implements BookService {
     @Transactional(
 //            readOnly =
 //            timeout = 3
-
+//    isolation = Isolation.DEFAULT
+            propagation = Propagation.REQUIRES_NEW
     )
     public void buyBook(Integer userId, Integer bookId) {
 
